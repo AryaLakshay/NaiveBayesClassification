@@ -1,0 +1,41 @@
+Assignment 1 Report
+
+Name: Lakshay Arya
+
+1. Performance on the development data with 100% of the training data
+1a. spam precision: 0.99
+1b. spam recall: 0.98
+1c. spam F1 score: 0.99
+1d. ham precision: 0.95
+1e. ham recall: 0.98
+1f. ham F1 score: 0.96
+
+2. Performance on the development data with 10% of the training data - Made a new file named nblearn10%data.py which only reads 10% of the data in the directory.
+2a. spam precision: 1.00
+2b. spam recall: 0.95
+2c. spam F1 score: 0.97
+2d. ham precision: 0.90
+2e. ham recall: 0.99
+2f. ham F1 score: 0.94
+
+3. Description of enhancement(s) you tried (e.g., different approach(es) to smoothing, treating common words differently, dealing with unknown words differently):
+3a. Add-one smoothing - adding one to the numerator and adding vocabulary size.
+3b. Removed Punctuations by using function string.punctuation from string library(import string).
+3c. Adding a token in the dictionary for example *UNKNOWN* for words which never appeared either in ham or spam.
+    *UNKNOWN* 1 1
+    this entry in the dictionary means the unknown word appeared in the dictionary once spam and once in ham
+    increase the count of number of words in ham and number of words in hame by one.
+    hard coded :
+	else:
+		probability_spam += log(2/(nospam + len(wordCountHamSpam)));
+               probability_ham += log(2/( noham + len(wordCountHamSpam)));
+    Numerator = 2 = 1+1 — Because the count of the toekn *UNKNOWN* is one in our dictionary.(Add one for smoothening)
+    whenever we encounter a word which we have never seen before we do this.
+
+4. Best performance results based on enhancements. Note that these could be the same or worse than the standard implementation.
+4a. spam precision: 0.99
+4b. spam recall: 0.99
+4c. spam F1 score: 0.99
+4d. ham precision:0.98
+4e. ham recall: 0.98
+4f. ham F1 score: 0.98
